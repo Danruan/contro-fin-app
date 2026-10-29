@@ -2,6 +2,5 @@
 {
   "appId": "com.meudinheiro.app",
   "appName": "Meu Dinheiro",
-  "webDir": "meu-dinheiro-app"
+  "webDir": "www"
 }
-
