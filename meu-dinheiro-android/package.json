@@ -1,6 +1,16 @@
 
 {
-  "appId": "com.meudinheiro.app",
-  "appName": "Meu Dinheiro",
-  "webDir": "meu-dinheiro-app"
+  "name": "meu-dinheiro-android",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "cap": "cap"
+  },
+  "dependencies": {
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/android": "^7.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3"
+  }
 }
