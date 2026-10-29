@@ -1,0 +1,21 @@
+MEU DINHEIRO — PROJETO ANDROID PARA GERAR APK
+
+Este pacote contém os arquivos do aplicativo e um fluxo automático do GitHub Actions para gerar um APK de teste.
+O APK ainda NÃO está compilado dentro deste ZIP.
+
+COMO GERAR SEM INSTALAR GIT NO COMPUTADOR:
+1. Entre no GitHub e crie um repositório novo, por exemplo: meu-dinheiro-android.
+2. Extraia este ZIP no computador.
+3. No repositório do GitHub, use Add file > Upload files e envie o CONTEÚDO desta pasta (incluindo a pasta oculta .github).
+4. Faça o commit dos arquivos na branch main.
+5. Abra a aba Actions do repositório. Se pedir, habilite GitHub Actions.
+6. Abra o workflow “Gerar APK Android” e clique em Run workflow. Também pode iniciar automaticamente depois de um push.
+7. Quando terminar com sucesso, abra a execução concluída e baixe o artefato “meu-dinheiro-apk”.
+8. Extraia o artefato e copie app-debug.apk para o celular. Abra o arquivo no Android e autorize a instalação de apps desta fonte, se o aparelho solicitar.
+
+IMPORTANTE:
+- Este é um APK de teste (debug), não publicado na Play Store.
+- O projeto ainda precisa ser compilado pelo GitHub Actions; este ZIP não contém um APK pronto.
+- Os dados do app ficam no armazenamento local do aparelho. Não são sincronizados automaticamente entre celulares.
+- Faça backup regularmente e teste as funções principais antes de usar com dados importantes.
+- A primeira compilação depende da disponibilidade do GitHub Actions e pode exigir habilitar Actions no repositório.
