@@ -1,14 +1,11 @@
+
 {
   "name": "meu-dinheiro-android",
   "version": "1.0.0",
   "private": true,
-  "description": "Aplicativo Meu Dinheiro para Android usando Capacitor",
-  "scripts": {
-    "build:android": "cap sync android"
-  },
   "dependencies": {
-    "@capacitor/android": "^7.4.3",
-    "@capacitor/core": "^7.4.3"
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/android": "^7.4.3"
   },
   "devDependencies": {
     "@capacitor/cli": "^7.4.3"
