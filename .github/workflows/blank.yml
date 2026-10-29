@@ -36,21 +36,28 @@ jobs:
           test -f capacitor.config.json
           test -f www/index.html
 
+      - name: Instalar dependências
+        run: npm install --include=dev
+
       - name: Verificar Capacitor
-        run: npm exec cap -- --version
+        run: |
+          npm ls @capacitor/cli
+          test -x node_modules/.bin/cap
+          ./node_modules/.bin/cap --version
 
       - name: Verificar configuração
-        run: npx cap config
+        run: ./node_modules/.bin/cap config
 
       - name: Criar projeto Android
-        run: npx cap add android
+        run: ./node_modules/.bin/cap add android
 
       - name: Sincronizar aplicativo
-        run: npx cap sync android
+        run: ./node_modules/.bin/cap sync android
 
       - name: Compilar APK
-        working-directory: meu-dinheiro-android/android
+        working-directory: meu-dinheiro-android
         run: |
+          cd android
           chmod +x gradlew
           ./gradlew assembleDebug
 
