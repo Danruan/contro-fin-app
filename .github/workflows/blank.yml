@@ -36,8 +36,8 @@ jobs:
           test -f capacitor.config.json
           test -f www/index.html
 
-      - name: Instalar dependências
-        run: npm install
+      - name: Verificar Capacitor
+        run: npm exec cap -- --version
 
       - name: Verificar configuração
         run: npx cap config
