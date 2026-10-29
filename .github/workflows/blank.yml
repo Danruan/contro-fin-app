@@ -4,44 +4,45 @@ name: Gerar APK Android
 on:
   workflow_dispatch:
   push:
-    paths:
-      - 'meu-dinheiro-app/**'
-      - 'android-wrapper/**'
-      - '.github/workflows/gerar-apk.yml'
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Baixar o projeto
+      - name: Baixar projeto
         uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
       - name: Configurar Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: '21'
 
-      - name: Preparar Android
-        run: |
-          echo "Verificando os arquivos do projeto"
-          ls -la
+      - name: Instalar dependências
+        run: npm install
 
-      - name: Gerar APK
+      - name: Criar projeto Android
+        run: npx cap add android
+
+      - name: Sincronizar aplicativo
+        run: npx cap sync android
+
+      - name: Compilar APK
+        working-directory: android
         run: |
-          if [ -f android-wrapper/gradlew ]; then
-            cd android-wrapper
-            chmod +x gradlew
-            ./gradlew assembleDebug
-          else
-            echo "Projeto Android/Gradle não encontrado."
-            echo "É necessário adicionar o projeto Android completo."
-            exit 1
-          fi
+          chmod +x gradlew
+          ./gradlew assembleDebug
 
       - name: Disponibilizar APK
-        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: meu-dinheiro-apk
-          path: android-wrapper/app/build/outputs/apk/debug/*.apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 14
