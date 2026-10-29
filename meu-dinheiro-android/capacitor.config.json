@@ -1,9 +1,7 @@
+
 {
-  "appId": "br.com.meudinheiro.app",
+  "appId": "com.meudinheiro.app",
   "appName": "Meu Dinheiro",
-  "webDir": "www",
-  "bundledWebRuntime": false,
-  "server": {
-    "androidScheme": "https"
-  }
+  "webDir": "meu-dinheiro-app"
 }
+
